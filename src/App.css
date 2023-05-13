@@ -36,3 +36,87 @@
     transform: rotate(360deg);
   }
 }
+
+.hero {
+  width: 1200px;
+  height: auto;
+  margin: 50px 0 50px 0;
+}
+
+.hero-text {
+  font-size: 20px;
+  background-color: #F5F5F5;
+  border: solid lightgray;
+  margin-bottom: 50px;
+  padding: 25px 50px;
+}
+
+.travel-card-title {
+  color: black;
+  font-size: 22px; 
+}
+
+.card {
+  margin-bottom: 5px;
+}
+
+.ud-logo-indesc {
+  height: 30px;
+}
+.custom-search-bar {
+  width: 300px;
+} 
+
+.web3-container {
+  background-color: #F5F5F5;
+  border: 2px solid grey;
+  padding: 25px;
+  margin: 50px 0 50px 0;
+}
+
+.domain-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.domain-card-body {
+  background-color: rgb(77, 72, 242);
+  border-radius: 0;
+}
+
+.domain-card-title {
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.domain-tld {
+  color: white;
+  font-weight: 700;
+  border: 2px solid rgba(112, 232, 252);
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.img-wrapper {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.img-wrapper img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.1);
+  filter: brightness(35%);
+}
+
+.centered {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
