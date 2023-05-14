@@ -1,9 +1,11 @@
 import './App.css';
 import Header from './components/Header';
+import HomePage from './pages/HomePage';
 import SearchBar from './components/Searchbar';
 import TravelCard from './components/TravelCard';
+import Footer from './components/Footer';
 import { Container } from 'reactstrap';
-import HomePage from './pages/HomePage';
+import 'font-awesome/css/font-awesome.css';
 
 function App() {
   
@@ -15,6 +17,7 @@ function App() {
     <TravelCard />
     <SearchBar />
     </Container>
+    <Footer />
     </>
   );
 }

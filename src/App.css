@@ -113,10 +113,14 @@
   filter: brightness(35%);
 }
 
-.centered {
-  position: fixed;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.site-footer {
+  background-color: black;
+  padding: 50px; 
+  margin: 25px 0 0 0;
   color: white;
 }
+
+.fa-facebook, .fa-youtube, .fa-instagram, .fa-twitter {
+  background: white;
+  color: black;
+  }

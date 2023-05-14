@@ -9,7 +9,7 @@ const HomePage = () => {
                 <Col xs='10' className='text-center'>
                     <img src={tawnyHeroImg} className="img-fluid hero" />
                 </Col>
-                <Col xs='8'>
+                <Col xs='12'>
                 <p className='hero-text'>Hello Everyone <br /><br />
                 My name is Tawny. Welcome to my travel blog. I'm glad you are here. I created this page as a hobby to detail what matters to me most when I travel. I'm mostly a solo traveler with the goal to still keep up my fitness journey while on the road. I visit local gyms when I'm overseas and hope to provide insight of them to you. <br /><br />
                 I've also recently been able to visit airport lounges and take business class flights. I hope to bring that information to you about lounges at the different airports I've visited and how I've been able to book those the upgraded seats. <br /><br />

@@ -37,7 +37,7 @@ function SearchBar() {
       <Row>
         <Col className='text-center'>
           <h2>Own your identity in the digital world</h2>
-          <h5>Search for a Web3 domain by Unstoppable Domains <img className='ud-logo-indesc' src={udLogo}/></h5>
+          <h6>Search for a Web3 domain by Unstoppable Domains <img className='ud-logo-indesc' src={udLogo}/></h6>
         </Col>
       </Row>
       <Row className="justify-content-center" style={{ marginTop: '20px' }}>
@@ -46,7 +46,6 @@ function SearchBar() {
           <input
             type="text"
             className="custom-search-bar" 
-            placeholder="Search..."
             value={searchQuery}
             onChange={handleInputChange}
           />
