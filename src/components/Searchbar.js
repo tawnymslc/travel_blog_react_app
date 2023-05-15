@@ -49,7 +49,9 @@ function SearchBar() {
             value={searchQuery}
             onChange={handleInputChange}
           />
-          <Button type='submit' color='primary'>
+          <Button 
+            type='submit' 
+            style={{ backgroundColor: 'rgb(77, 72, 242)', marginBottom: '4px' }}>
               Search
           </Button>
         </form>

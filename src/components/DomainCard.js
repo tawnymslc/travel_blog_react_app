@@ -32,13 +32,13 @@ const DomainCard = ({ domain, udImg, searchQuery}) => {
             <CardText style={{ marginTop: '15px', fontWeight: 'bold'}}>${price}</CardText>
             <CardFooter>
                 <Button 
-                    color='primary' 
-                    style={{ marginRight: '10px' }}
+                    className='domain-button'
+                    style={{ marginRight: '10px', backgroundColor: 'rgb(77, 72, 242)' }}
                     onClick={handleClick}
                 >
                     UD
                 </Button>
-                <Button color='primary'>Credit Card</Button>
+                <Button style={{ backgroundColor: 'rgb(77, 72, 242)' }}>Credit Card</Button>
             </CardFooter>
       </Card>
     );
