@@ -5,7 +5,7 @@ import DomainCard from "./DomainCard";
 import udCardImg from '../img/ud_image.png'
 import udLogo from '../img/ud_logo.png'
 
-function SearchBar() {
+const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 

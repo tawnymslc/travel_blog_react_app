@@ -52,33 +52,33 @@ const TravelCard = () => {
                 </div>
             </div>
 
-            <div class="card">
-                <div class="img-wrapper">
+            <div className="card">
+                <div className="img-wrapper">
                     <img src={loungeImg} class="card-img-top" alt="..."/>
                 </div>
                 <div class="card-body">
-                    <h5 class="travel-card-title">AIRPORT LOUNGE GUIDE</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 className="travel-card-title">AIRPORT LOUNGE GUIDE</h5>
+                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="img-wrapper">
-                    <img src={soloImg} class="card-img-top" alt="..."/>
+            <div className="card">
+                <div className="img-wrapper">
+                    <img src={soloImg} className="card-img-top" alt="..."/>
                 </div>
-                <div class="card-body">
-                    <h5 class="travel-card-title">SOLO TRAVEL STORIES</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="card-body">
+                    <h5 className="travel-card-title">SOLO TRAVEL STORIES</h5>
+                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="img-wrapper">
+            <div className="card">
+                <div className="img-wrapper">
                     <img src={blogImg} class="card-img-top" alt="..."/>
                 </div>
-                <div class="card-body">
-                    <h5 class="travel-card-title">BLOG</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="card-body">
+                    <h5 className="travel-card-title">BLOG</h5>
+                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
         </div>

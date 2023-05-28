@@ -16,7 +16,7 @@ const Header = () => {
                     <Col sm={5} className='text-center'>
                     <h3><strong>Destinations</strong></h3>
                         <form>
-                            <select class="form-control form-control-sm">
+                            <select className="form-control form-control-sm">
                                 <option value="Select">Select</option>
                                 <option value="Amsterdam">Amsterdam</option>
                                 <option value="HongKong">Hong Kong</option>

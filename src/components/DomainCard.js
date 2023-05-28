@@ -8,16 +8,31 @@ import {
         CardTitle, 
         CardFooter
     } from 'reactstrap';
+import axios from "axios";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const DomainCard = ({ domain, udImg, searchQuery}) => {
     const {name, price} = domain;
     const domainName = name.split('.')
 
-    const handleClick = () => {
+    const udClick = () => {
         const url = `https://unstoppabledomains.com/search?searchTerm=${encodeURIComponent(searchQuery)}&searchRef=home&tab=relev`;
         window.open(url, '_blank');
         console.log('Search: ', url, searchQuery);
+    };
+
+    const stripeClick = async () => {
+        axios.post('http://localhost:4243/create-checkout-session', {
+            // Add any request payload or data you need to send
+          })
+          .then((response) => {
+            // Handle the response as needed
+            console.log('Response:', response.data);
+          })
+          .catch((error) => {
+            // Handle errors
+            console.error('Error:', error);
+          });
     };
 
     return (
@@ -31,14 +46,22 @@ const DomainCard = ({ domain, udImg, searchQuery}) => {
             </CardBody>
             <CardText style={{ marginTop: '15px', fontWeight: 'bold'}}>${price}</CardText>
             <CardFooter>
+                <form action='/create-checkout-session' method='POST'>
                 <Button 
-                    className='domain-button'
                     style={{ marginRight: '10px', backgroundColor: 'rgb(77, 72, 242)' }}
-                    onClick={handleClick}
+                    onClick={udClick}
                 >
                     UD
                 </Button>
-                <Button style={{ backgroundColor: 'rgb(77, 72, 242)' }}>Credit Card</Button>
+                
+                <Button 
+                    type='submit'
+                    style={{ backgroundColor: 'rgb(77, 72, 242)' }}
+                    //onClick={stripeClick}  
+                >
+                    Credit Card
+                </Button>
+                </form>
             </CardFooter>
       </Card>
     );
