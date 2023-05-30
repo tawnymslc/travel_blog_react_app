@@ -8,31 +8,21 @@ import {
         CardTitle, 
         CardFooter
     } from 'reactstrap';
-import axios from "axios";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import PaymentModal from './PaymentModal';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 const DomainCard = ({ domain, udImg, searchQuery}) => {
     const {name, price} = domain;
     const domainName = name.split('.')
 
+    const stripePromise = loadStripe('pk_test_51N7udjKM0Vmt4Z7qMik5jVNKnceZRyrcNod2nUZC0JOYcvG274uQ8dQmKxUJZJPPIeNEz2XGBM2HKAm22E8OvKGl00mXFxkCl2');
+
     const udClick = () => {
         const url = `https://unstoppabledomains.com/search?searchTerm=${encodeURIComponent(searchQuery)}&searchRef=home&tab=relev`;
         window.open(url, '_blank');
         console.log('Search: ', url, searchQuery);
-    };
-
-    const stripeClick = async () => {
-        axios.post('http://localhost:4243/create-checkout-session', {
-            // Add any request payload or data you need to send
-          })
-          .then((response) => {
-            // Handle the response as needed
-            console.log('Response:', response.data);
-          })
-          .catch((error) => {
-            // Handle errors
-            console.error('Error:', error);
-          });
     };
 
     return (
@@ -53,14 +43,9 @@ const DomainCard = ({ domain, udImg, searchQuery}) => {
                 >
                     UD
                 </Button>
-                
-                <Button 
-                    type='submit'
-                    style={{ backgroundColor: 'rgb(77, 72, 242)' }}
-                    //onClick={stripeClick}  
-                >
-                    Credit Card
-                </Button>
+                <Elements stripe={stripePromise}>
+                    <PaymentModal />
+                </Elements>
                 </form>
             </CardFooter>
       </Card>
