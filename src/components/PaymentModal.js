@@ -2,10 +2,12 @@ import React from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from "axios";
 
-const PaymentModal = () => {
+const PaymentModal = ({price}) => {
 
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [success, setSuccess ] = useState(false)
   const [paymentError, setPaymentError] = useState(null);
 
   const stripe = useStripe();
@@ -39,43 +41,67 @@ const PaymentModal = () => {
       card: elements.getElement(CardElement)
     });
 
-    if (error) {
-      setPaymentError(error.message);
+    if (!error) {
+      const {id} = paymentMethod;
+
+      axios.post("http://localhost:4243/payment", {
+        amount: price * 100,
+        id
+      })
+      .then(response => {
+        if (response.data.success) {
+          console.log("Successful payment");
+          setSuccess(true);
+        }
+      })
+      .catch(error => {
+        console.log("Error", error);
+      })
     } else {
-      // Payment method created successfully, handle the payment
-      // You can call your server-side endpoint to process the payment
-      console.log(paymentMethod);
+      setPaymentError(error.message);
+      console.log(error.message);
     }
   };
 
   return (
-    <>
-    <Button
-      outline
-      onClick={() => setLoginModalOpen(true)}
-      style={{ color: 'white', backgroundColor: 'rgb(77, 72, 242)' }}
-      >
-        Credit Card
-    </Button>
-    <Modal isOpen={loginModalOpen}>
-      <ModalHeader toggle={() => setLoginModalOpen(false)}>
-          Payment
-      </ModalHeader>
-      <ModalBody>
-        <form onSubmit={domainPaymentSubmit}>
-          <CardElement options={cardElementOptions}/>
-          {paymentError && <div>{paymentError}</div>}
-        </form>
-      </ModalBody>
-      <ModalFooter>
-        <Button style={{ backgroundColor: 'rgb(77, 72, 242)' }}>
-          Pay
-        </Button>
-        <Button color="secondary" onClick={() => setLoginModalOpen(false)}>
-          Cancel
-        </Button>
-      </ModalFooter>
-    </Modal>
+      <>
+      <Button
+        outline
+        onClick={() => setLoginModalOpen(true)}
+        style={{ color: 'white', backgroundColor: 'rgb(77, 72, 242)' }}
+        >
+          Credit Card
+      </Button>
+      {!success ?
+        <Modal isOpen={loginModalOpen}>
+          <ModalHeader style={{color: 'white', backgroundColor: 'rgb(77, 72, 242)' }} toggle={() => setLoginModalOpen(false)}>
+              Payment
+          </ModalHeader>
+          <ModalBody>
+              <CardElement options={cardElementOptions}/>
+              {paymentError && <div>{paymentError}</div>}
+          </ModalBody>
+          <ModalFooter>
+            <form onSubmit={domainPaymentSubmit}>
+            <Button type='submit' style={{ backgroundColor: 'rgb(77, 72, 242)' }}>
+              Pay
+            </Button>
+            <Button color="secondary" onClick={() => setLoginModalOpen(false)}>
+              Cancel
+            </Button>
+            </form>
+          </ModalFooter>
+        </Modal>
+          : 
+        <Modal isOpen={loginModalOpen}>
+          <ModalHeader toggle={() => setLoginModalOpen(false)}>
+            Payment Successful!
+          </ModalHeader>
+          <ModalBody>
+            You have completed your purchase. 
+          </ModalBody>
+        </Modal>
+      }
     </>
   );
 };

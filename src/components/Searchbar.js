@@ -18,11 +18,7 @@ const SearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    axios.get(API_ENDPOINT, {
-        params: {
-          search: searchQuery,
-        },
-      })
+    axios.get(API_ENDPOINT, { params: { search: searchQuery }})
       .then((response) => {
         setSearchResults(response.data);
       })

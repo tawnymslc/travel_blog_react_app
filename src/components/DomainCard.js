@@ -13,7 +13,7 @@ import PaymentModal from './PaymentModal';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-const DomainCard = ({ domain, udImg, searchQuery}) => {
+const DomainCard = ({ domain, udImg, searchQuery }) => {
     const {name, price} = domain;
     const domainName = name.split('.')
 
@@ -44,7 +44,7 @@ const DomainCard = ({ domain, udImg, searchQuery}) => {
                     UD
                 </Button>
                 <Elements stripe={stripePromise}>
-                    <PaymentModal />
+                    <PaymentModal price={price} />
                 </Elements>
                 </form>
             </CardFooter>
